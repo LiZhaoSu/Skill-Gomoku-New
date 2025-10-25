@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚔️ 技能五子棋 - Soul Gomoku ⚔️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>技能五子棋</h1>
+        <p class="subtitle">外练筋骨皮，内练五子棋</p>
+        <p class="subtitle" style="font-size: 0.9em; opacity: 0.7; margin-top: -20px;">⚔️ Prepare For Battle ⚔️</p>
+
+        <!-- 敌人选择界面 -->
+        <div id="enemySelection" class="selection-screen">
+            <h2>⚔️ 选择对手 ⚔️</h2>
+            <div class="enemy-cards">
+                <div class="enemy-card" data-enemy="ziqi">
+                    <h3>⚔️ 子棋 ⚔️</h3>
+                    <p class="difficulty">难度: ★☆☆☆☆</p>
+                    <p class="description">基础对手，适合新手练习</p>
+                    <button class="select-btn">挑战</button>
+                </div>
+                <div class="enemy-card" data-enemy="jinengwu">
+                    <h3>⚔️ 技能五 ⚔️</h3>
+                    <p class="difficulty">难度: ★★★★★</p>
+                    <p class="description">攻击型高手，进攻凌厉</p>
+                    <button class="select-btn">挑战</button>
+                </div>
+                <div class="enemy-card" data-enemy="wangjinbao">
+                    <h3>⚔️ 王金宝 ⚔️</h3>
+                    <p class="difficulty">难度: ★★★★★★ (SOULS-LIKE)</p>
+                    <p class="description">终极挑战，近乎完美的棋力与战术</p>
+                    <p class="warning-text">⚠️ 新手根本无法获胜</p>
+                    <button class="select-btn">挑战</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 游戏界面 -->
+        <div id="gameScreen" class="game-screen" style="display: none;">
+            <!-- 玩家信息 -->
+            <div class="players-info">
+                <div class="player-card player-card-human">
+                    <h3 id="playerName">⚔️ 张呈 ⚔️</h3>
+                    <div class="player-piece black-piece"></div>
+                    <div id="playerSkills" class="skills"></div>
+                </div>
+
+                <div class="game-status">
+                    <div id="turnIndicator" class="turn-indicator"></div>
+                    <button id="backBtn" class="back-btn">返回选择</button>
+                </div>
+
+                <div class="player-card player-card-ai">
+                    <h3 id="enemyName"></h3>
+                    <div class="player-piece white-piece"></div>
+                    <div id="enemySkills" class="skills"></div>
+                </div>
+            </div>
+
+            <!-- 棋盘 -->
+            <div id="boardContainer" class="board-container">
+                <canvas id="board" width="750" height="750"></canvas>
+            </div>
+
+            <!-- 消息提示 -->
+            <div id="message" class="message"></div>
+        </div>
+
+        <!-- 游戏结束界面 -->
+        <div id="gameOverScreen" class="game-over-screen" style="display: none;">
+            <div class="game-over-content">
+            <h2 id="gameOverTitle"></h2>
+            <p id="gameOverMessage"></p>
+            <button id="restartBtn" class="restart-btn">⚔️ 再战 ⚔️</button>
+            <button id="backToSelectBtn" class="back-btn">返回</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 技能确认对话框 -->
+    <div id="skillDialog" class="skill-dialog" style="display: none;">
+        <div class="skill-dialog-content">
+            <h3 id="skillDialogTitle"></h3>
+            <p id="skillDialogMessage"></p>
+            <div id="skillDialogActions" class="dialog-actions">
+                <button id="cancelSkillBtn" class="btn-cancel">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
